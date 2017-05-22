@@ -13,23 +13,23 @@
     <div class="white-box">
     <form action="${pageContext.request.contextPath}/Administration/UserManagement/AddUser" method="post" class="form-horizontal form-material">
         <div class="form-group">
-        <label for="login" class="col-md-12">Email</label>
+        <label for="login" class="col-md-12">Login</label>
             <div class="col-md-12"><input class="form-control form-control-line" type="text" placeholder="UserName" name="login" id="login"></div>
         </div>
         <div class="form-group">
-            <label for="pass" class="col-md-12">Email</label>
+            <label for="pass" class="col-md-12">Password</label>
             <div class="col-md-12"><input class="form-control form-control-line" type="text" placeholder="Password" name="pass" id="pass"></div>
         </div>
         <div class="form-group">
-            <label for="fname" class="col-md-12">Email</label>
+            <label for="fname" class="col-md-12">First Name</label>
             <div class="col-md-12"><input class="form-control form-control-line" type="text" placeholder="FirstName" name="fname" id="fname"></div>
         </div>
         <div class="form-group">
-            <label for="lname" class="col-md-12">Email</label>
+            <label for="lname" class="col-md-12">Last Name</label>
             <div class="col-md-12"><input class="form-control form-control-line" type="text" placeholder="LastName" name="lname" id="lname"></div>
         </div>
         <div class="form-group">
-            <label for="age" class="col-md-12">Email</label>
+            <label for="age" class="col-md-12">Age</label>
             <div class="col-md-12"><input class="form-control form-control-line" type="number" placeholder="Age" name="age" id="age"></div>
         </div>
         <div class="form-group">

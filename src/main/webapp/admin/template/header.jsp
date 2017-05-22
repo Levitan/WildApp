@@ -98,6 +98,9 @@
                     <li>
                         <a href="<%=request.getContextPath()%>/Administration/Categories" class="waves-effect"><i class="fa fa-folder-open fa-fw" aria-hidden="true"></i>Categories</a>
                     </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/Administration/Articles" class="waves-effect"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Articles</a>
+                    </li>
 
 
                 </ul>
