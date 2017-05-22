@@ -46,7 +46,7 @@ public class ArticleEntity {
     }
 
     @Basic
-    @Column(name = "content", nullable = true, columnDefinition = "TEXT")
+    @Column(name = "content", nullable = true, columnDefinition = "TEXT", length = -1)
     public String getContent() {
         return content;
     }
@@ -56,12 +56,36 @@ public class ArticleEntity {
     }
 
     @Basic
-    @Column(name = "cat_id", nullable = true)
+    @Column(name = "cat_id", nullable = false)
     public int getCatId() {
         return catId;
     }
 
     public void setCatId(int catId) {
         this.catId = catId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ArticleEntity that = (ArticleEntity) o;
+
+        if (id != that.id) return false;
+        if (catId != that.catId) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (content != null ? !content.equals(that.content) : that.content != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + catId;
+        result = 31 * result + (content != null ? content.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 }
