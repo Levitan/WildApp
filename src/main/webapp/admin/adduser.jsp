@@ -15,7 +15,7 @@
         <input type="hidden" value="${user.id}" ${lock}>
         <div class="form-group">
         <label for="login" class="col-md-12">Login</label>
-            <div class="col-md-12"><input value="${user.username}" ${lock} class="form-control form-control-line" type="text" placeholder="UserName" name="login" id="login"></div>
+            <div class="col-md-12"><input value="${user.login}" ${lock} class="form-control form-control-line" type="text" placeholder="UserName" name="login" id="login"></div>
         </div>
         <div class="form-group">
             <label for="pass" class="col-md-12">Password</label>

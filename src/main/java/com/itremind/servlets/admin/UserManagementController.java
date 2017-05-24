@@ -49,7 +49,7 @@ public class UserManagementController {
         } else if (params.get("mode").equals("edit")){
             model.addAttribute("title", "Edit user");
             model.addAttribute("method", "PUT");
-            model.addAttribute("lock", "disable");
+            model.addAttribute("lock", "disabled");
             UsersEntity user = manager.getUserById(Integer.valueOf(params.get("id")));
             model.addAttribute("user", user);
             return "/admin/adduser";
@@ -71,7 +71,9 @@ public class UserManagementController {
     @RequestMapping(value = "/Administration/UserManagement/Update", method = RequestMethod.PUT)
     public String updateUser(@RequestParam Map<String,String> params){
         UsersEntity user = manager.getUserById(Integer.valueOf(params.get("id")));
-        user.setPassword(params.get("pass"));
+        if(!params.get("pass").equals("")) {
+            user.setPassword(params.get("pass"));
+        }
         user.setFirstName(params.get("fname"));
         user.setSecondName(params.get("lname"));
         user.setAge(Integer.valueOf(params.get("age")));

@@ -9,25 +9,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="<%=request.getContextPath()%>/admin/plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%=request.getContextPath()%>/resources/admin/plugins/images/favicon.png">
     <title>${title} :: WildApp Administration</title>
     <!-- Bootstrap Core CSS -->
-    <link href="<%=request.getContextPath()%>/admin/template/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/admin/template/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
-    <link href="<%=request.getContextPath()%>/admin/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/admin/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <!-- toast CSS -->
-    <link href="<%=request.getContextPath()%>/admin/plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/admin/plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
     <!-- morris CSS -->
-    <link href="<%=request.getContextPath()%>/admin/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/admin/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
     <!-- chartist CSS -->
-    <link href="<%=request.getContextPath()%>/admin/plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath()%>/admin/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/admin/plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/admin/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <!-- animation CSS -->
-    <link href="<%=request.getContextPath()%>/admin/template/css/animate.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/admin/template/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<%=request.getContextPath()%>/admin/template/css/style.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/admin/template/css/style.css" rel="stylesheet">
     <!-- color CSS -->
-    <link href="<%=request.getContextPath()%>/admin/template/css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/admin/template/css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -58,10 +58,10 @@
                     <!-- Logo -->
                     <a class="logo" href="index.html">
                         <!-- Logo icon image, you can use font-icon also --><b>
-                        <!--This is dark logo icon--><img src="<%=request.getContextPath()%>/admin/plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="<%=request.getContextPath()%>/admin/plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                        <!--This is dark logo icon--><img src="<%=request.getContextPath()%>/resources/admin/plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="<%=request.getContextPath()%>/resources/admin/plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
                      </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
-                        <!--This is dark logo text--><img src="<%=request.getContextPath()%>/admin/plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="<%=request.getContextPath()%>/admin/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        <!--This is dark logo text--><img src="<%=request.getContextPath()%>/resources/admin/plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="<%=request.getContextPath()%>/resources/admin/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
                      </span> </a>
                 </div>
                 <!-- /Logo -->
@@ -71,7 +71,7 @@
                             <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
                     </li>
                     <li>
-                        <a class="profile-pic" href="#"> <img src="<%=request.getContextPath()%>/admin/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b></a>
+                        <a class="profile-pic" href="#"> <img src="<%=request.getContextPath()%>/resources/admin/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b></a>
                     </li>
                 </ul>
             </div>
