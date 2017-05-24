@@ -31,4 +31,8 @@ public class CategoryEntityManager {
         List<CategoryEntity> result = db.getAllObjects(CategoryEntity.class);
         return result;
     }
+    public CategoryEntity getCategoryById(Integer id){
+        DBFactory db = DBFactory.getInstance();
+        return (CategoryEntity) db.getById(CategoryEntity.class, id);
+    }
 }

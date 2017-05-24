@@ -1,13 +1,18 @@
 package com.itremind.entities;
 
+
+
+import org.apache.commons.codec.digest.DigestUtils;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by vlevi on 21.05.2017.
  */
 @Entity
 @Table(name = "Users", schema = "wildapp", catalog = "")
-public class UsersEntity {
+public class UsersEntity implements Serializable{
     private int id;
     private String login;
     private String password;
@@ -53,7 +58,7 @@ public class UsersEntity {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = DigestUtils.md5Hex(password);
     }
 
     @Basic

@@ -4,7 +4,8 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="white-box">
-            <a class="btn btn-success" href="<%=request.getContextPath()%>/Administration/UserManagement/AddUser">Add new</a>
+            <a class="btn btn-success" href="<%=request.getContextPath()%>/Administration/UserManagement/Manage?mode=add">Add new</a>
+
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -23,7 +24,7 @@
                                 <td>${user.secondName}</td>
                                 <td>${user.login}</td>
                                 <td>${user.age}</td>
-                                <td></td>
+                                <td><a href="<%=request.getContextPath()%>/Administration/UserManagement/Manage?mode=edit&id=${user.id}"><i class="fa fa-pencil"></i></a>&nbsp;<a href="<%=request.getContextPath()%>/Administration/UserManagement/?delete=${user.id}"><i class="fa fa-trash-o"></i></a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

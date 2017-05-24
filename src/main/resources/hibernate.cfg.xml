@@ -5,13 +5,15 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="connection.url">jdbc:mysql://itremind.com/wildapp</property>
+    <property name="connection.url">jdbc:mysql://itremind.com/wildapp?useUnicode=true&amp;characterEncoding=UTF-8</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="connection.characterEncoding">UTF-8</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
 
     <property name="connection.username">wildapp</property>
     <property name="connection.password">471510196</property>
+
+
 
     <!-- NOTE that after automapping with IDEA property username and password will delete -->
     <!--and will be:  Initial SessionFactory failedorg.hibernate.service.spi.ServiceException: Unable to create requested service-->

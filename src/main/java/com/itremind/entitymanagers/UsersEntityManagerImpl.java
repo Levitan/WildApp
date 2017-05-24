@@ -2,17 +2,24 @@ package com.itremind.entitymanagers;
 
 
 import com.itremind.entities.UsersEntity;
+import com.itremind.entitymanagers.interfaces.UsersEntityManager;
 import com.itremind.utils.DBFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by vlevi on 22.05.2017.
  */
-public class UsersEntityManager{
-    private static UsersEntityManager instance = new UsersEntityManager();
-    private UsersEntityManager(){}
-    public static UsersEntityManager getInstance(){
+
+@Service
+@Scope("singleton")
+public class UsersEntityManagerImpl implements UsersEntityManager {
+    private static UsersEntityManagerImpl instance = new UsersEntityManagerImpl();
+    private UsersEntityManagerImpl(){}
+    public static UsersEntityManagerImpl getInstance(){
         return instance;
     }
 
@@ -39,5 +46,9 @@ public class UsersEntityManager{
         List result = db.createQuery("select USERS from com.itremind.entities.UsersEntity USERS where USERS.login=:login")
                 .setParameter("login", login).list();
         return result;
+    }
+    public UsersEntity getUserById(Integer id){
+        DBFactory db = DBFactory.getInstance();
+        return (UsersEntity)db.getById(UsersEntity.class, id);
     }
 }

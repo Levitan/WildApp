@@ -1,13 +1,14 @@
 package com.itremind.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Borisovskiy.V on 22.05.2017.
  */
 @Entity
 @Table(name = "Category", schema = "wildapp", catalog = "")
-public class CategoryEntity {
+public class CategoryEntity implements Serializable{
     private int id;
     private String name;
     private String description;

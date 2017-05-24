@@ -1,8 +1,7 @@
 package com.itremind.entities;
 
-import org.hibernate.annotations.ManyToAny;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Borisovskiy.V on 22.05.2017.
@@ -10,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Article", schema = "wildapp", catalog = "")
-public class ArticleEntity {
+public class ArticleEntity implements Serializable {
     private int id;
     private String name;
     private String content;

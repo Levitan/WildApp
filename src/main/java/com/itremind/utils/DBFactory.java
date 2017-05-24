@@ -48,7 +48,9 @@ public class DBFactory {
     public Query createQuery(String hql){
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         return session.createQuery(hql);
-//        session.close();
-//        return result;
+    }
+    public Object getById(Class c, Integer id){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        return session.get(c, id);
     }
 }

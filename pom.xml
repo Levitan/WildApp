@@ -9,6 +9,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <hibernate-version>5.0.1.Final</hibernate-version>
+    <spring.version>4.1.2.RELEASE</spring.version>
   </properties>
 
   <profiles>
@@ -95,6 +96,20 @@
       <version>${hibernate-version}</version>
     </dependency>
     <!--END Hibernate -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>wildapp</finalName>
