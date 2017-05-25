@@ -11,7 +11,7 @@
 
 <h3 style="color: #ff0000;">${error}</h3>
     <div class="white-box">
-    <form action="${pageContext.request.contextPath}/Administration/UserManagement/AddUser" method="${method}" class="form-horizontal form-material">
+    <form action="${pageContext.request.contextPath}/Administration/UserManagement/${method}" method="${method}" class="form-horizontal form-material">
         <input type="hidden" value="${user.id}" ${lock}>
         <div class="form-group">
         <label for="login" class="col-md-12">Login</label>

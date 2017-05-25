@@ -37,4 +37,8 @@ public class ArticleEntityManager {
                 .setParameter("id", id).list();
         return result;
     }
+    public ArticleEntity getArticleById(Integer id){
+        DBFactory db = DBFactory.getInstance();
+        return (ArticleEntity) db.getById(ArticleEntity.class, id);
+    }
 }

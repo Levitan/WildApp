@@ -3,6 +3,7 @@ package com.itremind.servlets.admin;
 import com.itremind.entities.UsersEntity;
 import com.itremind.entitymanagers.UsersEntityManagerImpl;
 import com.itremind.entitymanagers.interfaces.UsersEntityManager;
+import com.itremind.servlets.admin.interfaces.ManagementController;
 import jdk.nashorn.internal.ir.RuntimeNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,11 +26,11 @@ import java.util.Map;
  */
 
 @Controller
-public class UserManagementController {
+public class UserManagementController implements ManagementController{
     private UsersEntityManager manager = UsersEntityManagerImpl.getInstance();
 
     @RequestMapping(value = "/Administration/UserManagement", method = RequestMethod.GET)
-    public String userList(@RequestParam Map<String,String> params, Model model){
+    public String mainView(@RequestParam Map<String,String> params, Model model){
         if(params.get("delete") != null){
             manager.delete(manager.getUserById(Integer.valueOf(params.get("delete"))));
             return "redirect:/Administration/UserManagement";
@@ -41,7 +42,7 @@ public class UserManagementController {
     }
 
     @RequestMapping(value = "/Administration/UserManagement/Manage", method = RequestMethod.GET)
-    public String userAddView(@RequestParam Map<String,String> params, Model model){
+    public String addView(@RequestParam Map<String,String> params, Model model){
         if(params.get("mode").equals("add")){
             model.addAttribute("title", "Add user");
             model.addAttribute("method", "POST");
@@ -57,8 +58,9 @@ public class UserManagementController {
             return "redirect:/Administration/UserManagement";
         }
     }
-    @RequestMapping(value = "/Administration/UserManagement/AddUser", method = RequestMethod.POST)
-    public String userAdd(@RequestParam Map<String,String> params){
+
+    @RequestMapping(value = "/Administration/UserManagement/POST", method = RequestMethod.POST)
+    public String objectAdd(@RequestParam Map<String,String> params){
 
         UsersEntity newUser = new UsersEntity(params.get("login"),
                 params.get("pass"),
@@ -68,8 +70,8 @@ public class UserManagementController {
         manager.create(newUser);
         return "redirect:/Administration/UserManagement";
     }
-    @RequestMapping(value = "/Administration/UserManagement/Update", method = RequestMethod.PUT)
-    public String updateUser(@RequestParam Map<String,String> params){
+    @RequestMapping(value = "/Administration/UserManagement/PUT", method = {RequestMethod.GET, RequestMethod.PUT})
+    public String objectUpdate(@RequestParam Map<String,String> params){
         UsersEntity user = manager.getUserById(Integer.valueOf(params.get("id")));
         if(!params.get("pass").equals("")) {
             user.setPassword(params.get("pass"));

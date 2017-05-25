@@ -33,6 +33,23 @@
     <script src="<%=request.getContextPath()%>/resources/admin/template/js/custom.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/admin/template/js/dashboard1.js"></script>
     <script src="<%=request.getContextPath()%>/resources/admin/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-</body>
+
+    <c:if test="${toast.enable}">
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+                // toat popup js
+                jQuery.toast({
+                    heading: '${toast.title}',
+                    text: '${toast.description}',
+                    position: 'top-center',
+                    loaderBg: '#fff',
+                    icon: '${toast.type}',
+                    hideAfter: 3500,
+                    stack: 6
+                })
+            });
+        </script>
+    </c:if>
+    </body>
 
 </html>

@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="white-box">
-            <a class="btn btn-success" href="<%=request.getContextPath()%>/Administration/Categories/AddCat">Add new</a>
+            <a class="btn btn-success" href="<%=request.getContextPath()%>/Administration/Categories/Manage?mode=add">Add new</a>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -19,7 +19,8 @@
                                 <td>${cat.id}</td>
                                 <td>${cat.name}</td>
                                 <td>${cat.description}</td>
-                                <td></td>
+                                <td><a href="<%=request.getContextPath()%>/Administration/Categories/Manage?mode=edit&id=${cat.id}"><i class="fa fa-pencil"></i></a>&nbsp;
+                                    <a href="<%=request.getContextPath()%>/Administration/Categories/?delete=${cat.id}"><i class="fa fa-trash-o"></i></a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

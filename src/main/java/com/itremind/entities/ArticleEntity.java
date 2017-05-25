@@ -13,12 +13,12 @@ public class ArticleEntity implements Serializable {
     private int id;
     private String name;
     private String content;
-    private int catId;
+    private Integer catId;
 
     public ArticleEntity() {
     }
 
-    public ArticleEntity(String name, String content, int catId) {
+    public ArticleEntity(String name, String content, Integer catId) {
         this.name = name;
         this.content = content;
         this.catId = catId;
@@ -26,11 +26,11 @@ public class ArticleEntity implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -60,7 +60,7 @@ public class ArticleEntity implements Serializable {
         return catId;
     }
 
-    public void setCatId(int catId) {
+    public void setCatId(Integer catId) {
         this.catId = catId;
     }
 
