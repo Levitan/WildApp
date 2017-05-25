@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:beans="http://www.osgi.org/xmlns/blueprint/v1.0.0"
        xsi:schemaLocation="
  http://www.springframework.org/schema/beans
  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
@@ -11,13 +11,18 @@
  http://www.springframework.org/schema/mvc
          http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
     <mvc:annotation-driven />
+    <context:property-placeholder />
     <mvc:resources mapping="/resources/**" location="/" />
+    <mvc:resources order="-10" mapping="/uploads/**" location="file:/#{systemProperties['jboss.home.dir']}/appContent/wildapp/uploads/, file:/#{systemProperties['catalina.home']}/appContent/wildapp/uploads/, file:/#{systemProperties['user.dir']}/appContent/wildapp/uploads/"/>
     <context:component-scan base-package="com.itremind.servlets.admin"/>
     <context:component-scan base-package="com.itremind.servlets.site"/>
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1000000" />
     </bean>
 
 </beans>

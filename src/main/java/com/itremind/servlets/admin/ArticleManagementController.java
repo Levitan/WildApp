@@ -52,12 +52,12 @@ public class ArticleManagementController implements ManagementController{
 
         if(params.get("mode").equals("add")){
             model.addAttribute("title", "Add article");
-            model.addAttribute("method", "POST");
+            model.addAttribute("uri", "Add");
             model.addAttribute("cats", cats);
             return "/admin/addarticle";
         } else if (params.get("mode").equals("edit")){
             model.addAttribute("title", "Edit article");
-            model.addAttribute("method", "PATCH");
+            model.addAttribute("uri", "Update");
             model.addAttribute("lock", "disabled");
             ArticleEntity article = manager.getArticleById(Integer.valueOf(params.get("id")));
             model.addAttribute("article", article);
@@ -67,7 +67,7 @@ public class ArticleManagementController implements ManagementController{
             return "redirect:/Administration/Articles";
         }
     }
-    @RequestMapping(value = "/Administration/Articles/POST", method = RequestMethod.POST)
+    @RequestMapping(value = "/Administration/Articles/Add", method = RequestMethod.POST)
     public String objectAdd(@RequestParam Map<String, String> params) {
         ArticleEntity article = new ArticleEntity(params.get("name"),
                 params.get("content"),
@@ -75,7 +75,7 @@ public class ArticleManagementController implements ManagementController{
         manager.create(article);
         return "redirect:/Administration/Articles";
     }
-    @RequestMapping(value = "/Administration/Articles/PUT", method = {RequestMethod.GET, RequestMethod.PATCH})
+    @RequestMapping(value = "/Administration/Articles/Update", method = RequestMethod.POST)
     public String objectUpdate(@RequestParam Map<String, String> params) {
         ArticleEntity article = manager.getArticleById(Integer.valueOf(params.get("id")));
         article.setCatId(Integer.valueOf(params.get("cat")));

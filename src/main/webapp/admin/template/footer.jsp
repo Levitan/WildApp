@@ -34,9 +34,10 @@
     <script src="<%=request.getContextPath()%>/resources/admin/template/js/dashboard1.js"></script>
     <script src="<%=request.getContextPath()%>/resources/admin/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
 
-    <c:if test="${toast.enable}">
+
         <script type="text/javascript">
-            jQuery(document).ready(function () {
+            jQuery(document).ready(function (e) {
+            <c:if test="${toast.enable}">
                 // toat popup js
                 jQuery.toast({
                     heading: '${toast.title}',
@@ -47,9 +48,27 @@
                     hideAfter: 3500,
                     stack: 6
                 })
+            </c:if>
+            $("#imageUpload").on("submit", function(e){
+                e.preventDefault();
+                $("#loading").html("loading...");
+            $.ajax({
+                url: "<%=request.getContextPath()%>/Administration/Articles/Upload",
+                type: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data){
+                    $("#loading").html("");
+                    $("#outCode").val(data);
+                }
+            });
+            });
+
             });
         </script>
-    </c:if>
+
     </body>
 
 </html>
