@@ -2,13 +2,19 @@
     		<div class="form-group">
     		    <label class="col-md-12">File to upload:</label>
     		    <div class="col-md-12">
-    		        <input type="file" name="file">
+    		        <input type="file" name="file" required>
                 </div>
             </div>
             <div class="form-group">
     		    <label class="col-md-12">Name: </label>
     		    <div class="col-md-12">
-    		        <input class="form-control form-control-line" type="text" name="name">
+    		        <input class="form-control form-control-line" type="text" name="name" required>
+                </div>
+            </div>
+			<div class="form-group">
+    		    <label class="col-md-12">Image width: </label>
+    		    <div class="col-md-12">
+					<input class="form-control form-control-line" type="number" name="width">
                 </div>
             </div>
             <div class="form-group">

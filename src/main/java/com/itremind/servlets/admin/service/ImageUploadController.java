@@ -1,10 +1,8 @@
 package com.itremind.servlets.admin.service;
 
-import com.itremind.utils.Toast;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +26,7 @@ public class ImageUploadController {
     @RequestMapping(value = "/Administration/Articles/Upload", method = RequestMethod.POST)
     public @ResponseBody String uploadFileHandler(@RequestParam("name") String name,
                                                   @RequestParam("file") MultipartFile file,
+                                                  @RequestParam("width") Integer width,
                                                   HttpSession session){
         if(!file.isEmpty()){
             try {
@@ -45,10 +44,13 @@ public class ImageUploadController {
                     dir.mkdirs();
                 }
                 File serverFile = new File(dir.getAbsolutePath() + File.separator + name + ".jpg");
+                if(serverFile.exists()){
+                    serverFile = new File(dir.getAbsolutePath() + File.separator + name + "0" + ".jpg");
+                }
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
                 stream.write(bytes);
                 stream.close();
-                return "<img src='/uploads/" + name + ".jpg' >";
+                return "<img src=\"/wildapp/uploads/" + name + ".jpg\" style=\"width:" + width + "px;\" >";
 
             } catch (IOException e) {
 
