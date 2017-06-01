@@ -34,7 +34,11 @@
   </profiles>
 
   <dependencies>
-
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
     <!-- Apache Commons FileUpload -->
     <dependency>
       <groupId>commons-fileupload</groupId>

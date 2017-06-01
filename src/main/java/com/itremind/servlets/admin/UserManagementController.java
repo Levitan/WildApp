@@ -35,7 +35,7 @@ public class UserManagementController implements ManagementController{
             manager.delete(manager.getUserById(Integer.valueOf(params.get("delete"))));
             return "redirect:/Administration/UserManagement";
         }
-        model.addAttribute("title", "User Management");
+        model.addAttribute(PAGE_TITLE, "User Management");
         List<UsersEntity> users = manager.getAllUsers();
         model.addAttribute("users", users);
         return "/admin/userlist";
@@ -44,11 +44,11 @@ public class UserManagementController implements ManagementController{
     @RequestMapping(value = "/Administration/UserManagement/Manage", method = RequestMethod.GET)
     public String addView(@RequestParam Map<String,String> params, Model model){
         if(params.get("mode").equals("add")){
-            model.addAttribute("title", "Add user");
+            model.addAttribute(PAGE_TITLE, "Add user");
             model.addAttribute("method", "POST");
             return "/admin/adduser";
         } else if (params.get("mode").equals("edit")){
-            model.addAttribute("title", "Edit user");
+            model.addAttribute(PAGE_TITLE, "Edit user");
             model.addAttribute("method", "PUT");
             model.addAttribute("lock", "disabled");
             UsersEntity user = manager.getUserById(Integer.valueOf(params.get("id")));

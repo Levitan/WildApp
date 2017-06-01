@@ -22,7 +22,7 @@ public class CategoryManagementController implements ManagementController {
 
     @RequestMapping(value = "/Administration/Categories", method = RequestMethod.GET)
     public String mainView(@RequestParam Map<String,String> params, Model model){
-        model.addAttribute("title", "Category Manager");
+        model.addAttribute(PAGE_TITLE, "Category Manager");
         if(params.get("delete") != null){
             manager.delete(manager.getCategoryById(Integer.valueOf(params.get("delete"))));
             return "redirect:/Administration/Categories";
@@ -36,11 +36,11 @@ public class CategoryManagementController implements ManagementController {
     @RequestMapping(value = "/Administration/Categories/Manage", method = RequestMethod.GET)
     public String addView(@RequestParam Map<String,String> params, Model model){
         if(params.get("mode").equals("add")){
-            model.addAttribute("title", "Add category");
+            model.addAttribute(PAGE_TITLE, "Add category");
             model.addAttribute("method", "POST");
             return "/admin/addcat";
         } else if (params.get("mode").equals("edit")){
-            model.addAttribute("title", "Edit user");
+            model.addAttribute(PAGE_TITLE, "Edit user");
             model.addAttribute("method", "PUT");
             model.addAttribute("lock", "disable");
             CategoryEntity category = manager.getCategoryById(Integer.valueOf(params.get("id")));

@@ -32,7 +32,7 @@ public class ArticleManagementController implements ManagementController{
 
     @RequestMapping(value = "/Administration/Articles", method = RequestMethod.GET)
     public String mainView(@RequestParam Map<String, String> params, Model model) {
-        model.addAttribute("title", "Article management");
+        model.addAttribute(PAGE_TITLE, "Article management");
         if(params.get("delete") != null){
             manager.delete(manager.getArticleById(Integer.valueOf(params.get("delete"))));
             return "redirect:/Administration/Articles";
@@ -51,12 +51,12 @@ public class ArticleManagementController implements ManagementController{
         List<CategoryEntity> cats = catManager.getAllCategories();
 
         if(params.get("mode").equals("add")){
-            model.addAttribute("title", "Add article");
+            model.addAttribute(PAGE_TITLE, "Add article");
             model.addAttribute("uri", "Add");
             model.addAttribute("cats", cats);
             return "/admin/addarticle";
         } else if (params.get("mode").equals("edit")){
-            model.addAttribute("title", "Edit article");
+            model.addAttribute(PAGE_TITLE, "Edit article");
             model.addAttribute("uri", "Update");
             model.addAttribute("lock", "disabled");
             ArticleEntity article = manager.getArticleById(Integer.valueOf(params.get("id")));
