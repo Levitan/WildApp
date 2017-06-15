@@ -1,6 +1,6 @@
     <!-- /.container-fluid -->
             </div>
-            <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>
+            <footer class="footer text-center"> 2017 &copy; WildApp </footer>
         </div>
         <!-- ============================================================== -->
         <!-- End Page Content -->

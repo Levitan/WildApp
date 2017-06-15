@@ -36,4 +36,9 @@
 
     <%@include file="/admin/template/uploader.jsp" %>
     </div>
+<script type="text/javascript">
+    CKEDITOR.replace( 'content' );
+</script>
+
+
 <%@include file="/admin/template/footer.jsp" %>

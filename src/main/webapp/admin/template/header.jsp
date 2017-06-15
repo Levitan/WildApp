@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,6 +36,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>
 </head>
 
 <body class="fix-header">
@@ -65,15 +68,15 @@
                      </span> </a>
                 </div>
                 <!-- /Logo -->
-                <ul class="nav navbar-top-links navbar-right pull-right">
-                    <li>
-                        <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
-                            <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
-                    </li>
-                    <li>
-                        <a class="profile-pic" href="#"> <img src="<%=request.getContextPath()%>/resources/admin/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b></a>
-                    </li>
-                </ul>
+                <%--<ul class="nav navbar-top-links navbar-right pull-right">--%>
+                    <%--<li>--%>
+                        <%--<form role="search" class="app-search hidden-sm hidden-xs m-r-10">--%>
+                            <%--<input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>--%>
+                    <%--</li>--%>
+                    <%--<li>--%>
+                        <%--<a class="profile-pic" href="#"> <img src="<%=request.getContextPath()%>/resources/admin/plugins/images/identity/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b></a>--%>
+                    <%--</li>--%>
+                <%--</ul>--%>
             </div>
             <!-- /.navbar-header -->
             <!-- /.navbar-top-links -->
@@ -100,6 +103,9 @@
                     </li>
                     <li>
                         <a href="<%=request.getContextPath()%>/Administration/Articles" class="waves-effect"><i class="fa fa-file fa-fw" aria-hidden="true"></i>Articles</a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/Administration/Menu" class="waves-effect"><i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>Menu</a>
                     </li>
 
 

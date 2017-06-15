@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@include file="/admin/template/header.jsp" %>
 <div class="row">
     <div class="col-sm-12">
@@ -10,11 +11,13 @@
                             <th>ID</th>
                             <th>Title</th>
                             <th>Category</th>
+                            <th>Last update</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${articles}" var="article">
+                            <fmt:formatDate value="${article.date}" pattern="dd MMMM yyyy HH:mm" var="displayDate"/>
                             <tr>
                                 <td>${article.id}</td>
                                 <td>${article.name}</td>
@@ -25,9 +28,10 @@
                                         </c:if>
                                     </c:forEach>
                                 </td>
-                                <td><a href="<%=request.getContextPath()%>/Administration/Articles/View?id=${article.id}"><i class="fa fa-eye"></i></a>&nbsp;
+                                <td>${displayDate}</td>
+                                <td><a href="<%=request.getContextPath()%>/Administration/Articles/View/${article.id}"><i class="fa fa-eye"></i></a>&nbsp;
                                     <a href="<%=request.getContextPath()%>/Administration/Articles/Manage?mode=edit&id=${article.id}"><i class="fa fa-pencil"></i></a>&nbsp;
-                                    <a href="<%=request.getContextPath()%>/Administration/Articles/?delete=${article.id}"><i class="fa fa-trash-o"></i></a></td>
+                                    <a href="<%=request.getContextPath()%>/Administration/Articles/Delete/${article.id}"><i class="fa fa-trash-o"></i></a></td>
                                 </td>
                             </tr>
                         </c:forEach>

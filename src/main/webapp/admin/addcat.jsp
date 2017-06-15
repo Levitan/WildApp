@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/admin/template/header.jsp" %>
 <div class="white-box">
-    <form action="${pageContext.request.contextPath}/Administration/Categories/${method}" method="${method}" class="form-horizontal form-material">
-        <input type="hidden" value="${cat.id}">
+    <form action="${pageContext.request.contextPath}/Administration/Categories/${method}" method="POST" class="form-horizontal form-material">
+        <input type="hidden" value="${cat.id}" name="id">
         <div class="form-group">
         <label for="login" class="col-md-12">Name</label>
             <div class="col-md-12"><input value="${cat.name}" class="form-control form-control-line" type="text" placeholder="" name="name" id="login"></div>
