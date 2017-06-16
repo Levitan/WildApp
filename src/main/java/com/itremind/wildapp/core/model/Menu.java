@@ -8,9 +8,9 @@ import javax.persistence.*;
 @Entity
 public class Menu {
 
-    private static final int ARTICLE = 0;
-    private static final int CATEGORY = 1;
-    private static final int PAGE = 2;
+    public static final int ARTICLE = 0;
+    public static final int CATEGORY = 1;
+    public static final int PAGE = 2;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +29,9 @@ public class Menu {
     @Column(name = "enable", nullable = false)
     Boolean isEnable;
 
+    @Column(name = "order", nullable = true)
+    Integer order;
+
     public Menu() {
     }
 
@@ -37,6 +40,7 @@ public class Menu {
         this.type = type;
         this.contentId = contentId;
         this.isEnable = isEnable;
+        this.order = 10;
     }
 
     public Long getId() {
@@ -73,5 +77,39 @@ public class Menu {
 
     public void setEnable(Boolean enable) {
         isEnable = enable;
+    }
+
+    public Integer getOrder() {
+        return order;
+    }
+
+    public void setOrder(Integer order) {
+        this.order = order;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Menu menu = (Menu) o;
+
+        if (!id.equals(menu.id)) return false;
+        if (!name.equals(menu.name)) return false;
+        if (!type.equals(menu.type)) return false;
+        if (!contentId.equals(menu.contentId)) return false;
+        if (!isEnable.equals(menu.isEnable)) return false;
+        return order != null ? order.equals(menu.order) : menu.order == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + type.hashCode();
+        result = 31 * result + contentId.hashCode();
+        result = 31 * result + isEnable.hashCode();
+        result = 31 * result + (order != null ? order.hashCode() : 0);
+        return result;
     }
 }
