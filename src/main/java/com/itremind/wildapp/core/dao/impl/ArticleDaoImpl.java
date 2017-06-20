@@ -32,7 +32,7 @@ public class ArticleDaoImpl extends AbstractDaoImpl<Article, Long> implements Ar
     public Article getArticleByAlias(String alias) {
         DetachedCriteria criteria = DetachedCriteria.forClass(Article.class);
         criteria.add(Restrictions.eq("alias", alias));
-        return (Article) criteria.getExecutableCriteria(getCurrentSession()).list().get(0);
+        return (Article) criteria.getExecutableCriteria(getCurrentSession()).uniqueResult();
     }
 
     public List<Article> getArticlesByCatId(Long id) {

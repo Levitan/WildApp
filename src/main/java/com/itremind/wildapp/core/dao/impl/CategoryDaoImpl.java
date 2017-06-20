@@ -36,6 +36,6 @@ public class CategoryDaoImpl extends AbstractDaoImpl<Category, Long> implements 
     public Category getCategoryByAlias(String alias){
         DetachedCriteria criteria = DetachedCriteria.forClass(Category.class);
         criteria.add(Restrictions.eq("alias", alias));
-        return (Category) criteria.getExecutableCriteria(getCurrentSession()).list().get(0);
+        return (Category) criteria.getExecutableCriteria(getCurrentSession()).uniqueResult();
     }
 }

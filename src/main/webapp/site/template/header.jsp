@@ -18,15 +18,21 @@
 <!-- Wrapper -->
 <div id="wrapper">
 
+
     <!-- Header -->
     <header id="header">
         <h1><a href="#">WildApp</a></h1>
         <nav class="links">
+            <%--<ul>--%>
+                <%--<li><a href="<%=request.getContextPath()%>/">Содержание</a></li>--%>
+                <%--<li><a href="<%=request.getContextPath()%>/tests/excel">Тест</a></li>--%>
+                <%--<li><a href="<%=request.getContextPath()%>/articles/source">Источники</a></li>--%>
+                <%--<li><a href="<%=request.getContextPath()%>/sluzhebnie/kontakti">Контакты</a></li>--%>
+            <%--</ul>--%>
             <ul>
-                <li><a href="<%=request.getContextPath()%>/">Содержание</a></li>
-                <li><a href="<%=request.getContextPath()%>/tests/excel">Тест</a></li>
-                <li><a href="<%=request.getContextPath()%>/articles/source">Источники</a></li>
-                <li><a href="<%=request.getContextPath()%>/sluzhebnie/kontakti">Контакты</a></li>
+                <c:forEach items="${topnav}" var="nav">
+                    <li><a href="<%=request.getContextPath()%>${nav.value}">${nav.key}</a></li>
+                </c:forEach>
             </ul>
         </nav>
         <%--<nav class="main">--%>

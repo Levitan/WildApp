@@ -34,10 +34,12 @@ public class IndexController {
 
         Category cat = categoryDao.getCategoryByAlias("articles");
         List<Article> articles = articleDao.getByPage(1, ContentUtils.perPage, cat.getId());
+        List<Article> allArticles = articleDao.getArticlesByCatId(cat.getId());
         int pageCount = ContentUtils.getPageCount(articleDao.getArticlesCount(cat.getId()).intValue());
         model.addAttribute("title", cat.getName());
         model.addAttribute("category", cat);
         model.addAttribute("articles", articles);
+        model.addAttribute("allArticles", allArticles);
         model.addAttribute("pageCount", pageCount);
         model.addAttribute("currentPage", 1);
         return "/site/category";

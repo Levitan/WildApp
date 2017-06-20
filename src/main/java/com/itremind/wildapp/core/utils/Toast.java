@@ -27,6 +27,11 @@ public class Toast {
         this.type = type;
     }
 
+    public Toast(String title, String type) {
+        this.title = title;
+        this.type = type;
+    }
+
     public Boolean getEnable() {
         return enable;
     }

@@ -15,13 +15,20 @@
         </div>
         <hr>
         <div class="form-group">
-            <label for="art_cat" class="col-md-12">Type</label>
+            <label for="typeSelect" class="col-md-12">Type</label>
             <div class="col-md-12">
-                <select class="form-control form-control-line" name="cat" id="art_cat" required>
+                <select class="form-control form-control-line" name="type" id="typeSelect" required>
                     <option>--</option>
                     <c:forEach items="${TYPES}" var="type" varStatus="status">
-                        <option <c:if test="${menu.type == type}">selected </c:if> value="${status.index}">${type}</option>
+                        <option <c:if test="${status.index == menu.type}">selected </c:if> value="${status.index}">${type}</option>
                     </c:forEach>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="contentSelect" class="col-md-12">Type</label>
+            <div class="col-md-12">
+                <select class="form-control form-control-line" name="contentId" id="contentSelect" required style="display: none;">
                 </select>
             </div>
         </div>
@@ -34,4 +41,5 @@
         </div>
     </form>
     </div>
+
 <%@include file="/admin/template/footer.jsp" %>

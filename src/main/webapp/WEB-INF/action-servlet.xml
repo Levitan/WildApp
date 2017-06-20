@@ -12,6 +12,7 @@
          http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
     <!--file:/#{systemProperties['jboss.home.dir']}/appContent/wildapp/uploads/, -->
     <mvc:annotation-driven />
+
     <context:property-placeholder />
     <mvc:resources mapping="/resources/**" location="/" />
     <mvc:resources order="-10" mapping="/uploads/**" location="
@@ -29,5 +30,6 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="10000000" />
     </bean>
+    <bean id="myInit" class="com.itremind.wildapp.Main" />
 
 </beans>

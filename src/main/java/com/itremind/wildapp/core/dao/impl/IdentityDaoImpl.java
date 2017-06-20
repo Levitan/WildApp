@@ -32,6 +32,6 @@ public class IdentityDaoImpl extends AbstractDaoImpl<Identity, Long> implements 
     public Identity getIdentityByLogin(String login) {
         DetachedCriteria criteria = DetachedCriteria.forClass(Identity.class);
         criteria.add(Restrictions.eq("login", login));
-        return (Identity) criteria.getExecutableCriteria(getCurrentSession()).list().get(0);
+        return (Identity) criteria.getExecutableCriteria(getCurrentSession()).uniqueResult();
     }
 }

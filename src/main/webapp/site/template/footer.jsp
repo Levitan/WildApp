@@ -17,7 +17,7 @@
             <section>
                 <h2>Содержание</h2>
                 <ul class="posts">
-                    <c:forEach items="${articles}" var="art">
+                    <c:forEach items="${allArticles}" var="art">
                         <li>
                             <article>
                                 <header>

@@ -25,7 +25,7 @@ public class PropertyDaoImpl extends AbstractDaoImpl<Property, Long> implements 
     public Property getProperty(String property) {
         DetachedCriteria criteria = DetachedCriteria.forClass(Property.class);
         criteria.add(Restrictions.eq("property", property));
-        return (Property) criteria.getExecutableCriteria(getCurrentSession()).setMaxResults(1);
+        return (Property) criteria.getExecutableCriteria(getCurrentSession()).uniqueResult();
     }
 
     @Override

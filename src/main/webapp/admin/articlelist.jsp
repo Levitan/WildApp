@@ -1,4 +1,3 @@
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@include file="/admin/template/header.jsp" %>
 <div class="row">
     <div class="col-sm-12">
