@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.xml.ws.RequestWrapper;
 import java.util.List;
@@ -21,7 +22,7 @@ public class PropertyManagementController implements ManagementController {
     @Autowired
     PropertyDao propertyDao;
 
-    @RequestMapping("/Administration/Property")
+    @RequestMapping(value = "/Administration/Property", method = RequestMethod.GET)
     public String mainView(Map<String, String> params, Model model) {
         List<Property> properties = propertyDao.getAllProperties();
 
@@ -29,7 +30,7 @@ public class PropertyManagementController implements ManagementController {
         model.addAttribute(PAGE_TITLE, "System properties");
         return "/admin/property";
     }
-
+    @RequestMapping(value = "/Administration/Property/Manage", method = RequestMethod.GET)
     public String addView(Map<String, String> params, Model model) {
         return null;
     }

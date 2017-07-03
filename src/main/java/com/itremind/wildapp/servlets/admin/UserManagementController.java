@@ -31,7 +31,7 @@ public class UserManagementController implements ManagementController{
         }
         model.addAttribute(PAGE_TITLE, "User Management");
         List<Identity> users = identityDao.getAllUsers();
-        model.addAttribute("users", users);
+        model.addAttribute("identity", users);
         return "/admin/userlist";
     }
 

@@ -12,7 +12,7 @@ public class Property {
     @Column(name = "id", nullable = false)
     private int id;
 
-    @Column(name = "property", nullable = false, length = 50)
+    @Column(name = "property", nullable = false, length = 50, unique = true)
     private String property;
 
     @Column(name = "value", nullable = false, length = 50)

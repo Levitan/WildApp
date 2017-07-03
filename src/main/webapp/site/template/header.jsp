@@ -31,7 +31,7 @@
             <%--</ul>--%>
             <ul>
                 <c:forEach items="${topnav}" var="nav">
-                    <li><a href="<%=request.getContextPath()%>${nav.value}">${nav.key}</a></li>
+                    <li><a href="<%=request.getContextPath()%>${nav.url}">${nav.name}</a></li>
                 </c:forEach>
             </ul>
         </nav>

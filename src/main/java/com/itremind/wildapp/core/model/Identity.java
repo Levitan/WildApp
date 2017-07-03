@@ -1,5 +1,8 @@
 package com.itremind.wildapp.core.model;
 
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
 /**
@@ -12,22 +15,24 @@ public class Identity {
     @Column(name = "id")
     private Long id;
 
-    @Basic
     @Column(name = "age", nullable = true)
     private Integer age;
 
-    @Basic
+
     @Column(name = "first_name", nullable = true, length = 32)
     private String firstName;
-    @Basic
-    @Column(name = "login", nullable = false, length = 50)
+
+    @Column(name = "login", nullable = false, length = 50, unique = true)
     private String login;
-    @Basic
+
     @Column(name = "password", nullable = false, length = 32)
     private String password;
-    @Basic
+
     @Column(name = "second_name", nullable = true, length = 32)
     private String secondName;
+
+    @Column(name = "enabled", nullable = false)
+    private Boolean enable;
 
 
     public Identity() {
@@ -36,7 +41,7 @@ public class Identity {
     public Identity(String login, String password, String firstName, String secondName, Integer age) {
         this.firstName = firstName;
         this.login = login;
-        this.password = password;
+        this.password = DigestUtils.md5Hex(password);
         this.secondName = secondName;
         this.age = age;
     }
@@ -69,12 +74,8 @@ public class Identity {
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
-        this.password = password;
+        this.password = DigestUtils.md5Hex(password);
     }
 
     public String getSecondName() {
@@ -85,6 +86,14 @@ public class Identity {
         this.secondName = secondName;
     }
 
+    public Boolean getEnable() {
+        return enable;
+    }
+
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,24 +101,24 @@ public class Identity {
 
         Identity identity = (Identity) o;
 
-        if (id != identity.id) return false;
+        if (!id.equals(identity.id)) return false;
         if (age != null ? !age.equals(identity.age) : identity.age != null) return false;
         if (firstName != null ? !firstName.equals(identity.firstName) : identity.firstName != null) return false;
-        if (login != null ? !login.equals(identity.login) : identity.login != null) return false;
-        if (password != null ? !password.equals(identity.password) : identity.password != null) return false;
+        if (!login.equals(identity.login)) return false;
+        if (!password.equals(identity.password)) return false;
         if (secondName != null ? !secondName.equals(identity.secondName) : identity.secondName != null) return false;
-
-        return true;
+        return enable.equals(identity.enable);
     }
 
     @Override
     public int hashCode() {
-        int result = id.intValue();
+        int result = id.hashCode();
         result = 31 * result + (age != null ? age.hashCode() : 0);
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
-        result = 31 * result + (login != null ? login.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + login.hashCode();
+        result = 31 * result + password.hashCode();
         result = 31 * result + (secondName != null ? secondName.hashCode() : 0);
+        result = 31 * result + enable.hashCode();
         return result;
     }
 }

@@ -107,6 +107,9 @@
                     <li>
                         <a href="<%=request.getContextPath()%>/Administration/Menu" class="waves-effect"><i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>Menu</a>
                     </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/Administration/Property" class="waves-effect"><i class="fa fa-gear fa-spin fa-fw" aria-hidden="true"></i>Property</a>
+                    </li>
 
 
                 </ul>

@@ -11,7 +11,7 @@
 
 <h3 style="color: #ff0000;">${error}</h3>
     <div class="white-box">
-    <form action="${pageContext.request.contextPath}/Administration/UserManagement/${method}" method="${method}" class="form-horizontal form-material">
+    <form action="${pageContext.request.contextPath}/Administration/UserManagement/${method}" method="POST" class="form-horizontal form-material">
         <input type="hidden" value="${user.id}" ${lock}>
         <div class="form-group">
         <label for="login" class="col-md-12">Login</label>
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label for="pass" class="col-md-12">Password</label>
-            <div class="col-md-12"><input value="" class="form-control form-control-line" type="text" placeholder="Password" name="pass" id="pass"></div>
+            <div class="col-md-12"><input value="" class="form-control form-control-line" type="password" placeholder="Password" name="pass" id="pass"></div>
         </div>
         <div class="form-group">
             <label for="fname" class="col-md-12">First Name</label>

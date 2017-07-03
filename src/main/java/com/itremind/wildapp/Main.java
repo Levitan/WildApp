@@ -1,5 +1,7 @@
 package com.itremind.wildapp;
 
+import com.itremind.wildapp.controllers.NavigationCtrl;
+import com.itremind.wildapp.controllers.beans.NavItem;
 import com.itremind.wildapp.core.dao.ArticleDao;
 import com.itremind.wildapp.core.dao.CategoryDao;
 import com.itremind.wildapp.core.dao.NavigationDao;
@@ -26,16 +28,12 @@ public class Main{
     ArticleDao articleDao;
     @Autowired
     CategoryDao categoryDao;
+    @Autowired
+    NavigationCtrl navigationCtrl;
 
     @ModelAttribute("topnav")
-    public Map<String,String> globalNav(){
-        List<Navigation> navList = navigationDao.getNavByActive(Boolean.TRUE);
-        Map<String, String> navItems = new HashMap<String, String>();
-        for(Navigation nav : navList){
-            navItems.put(nav.getName(), navigationDao.getItemURI(nav));
-            System.out.println();
-        }
-        return navItems;
+    public List<NavItem> globalNav(){
+        return navigationCtrl.getMainNavigation();
     }
 
 }
