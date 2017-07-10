@@ -1,5 +1,6 @@
 package com.itremind.wildapp.servlets.admin;
 
+import com.itremind.wildapp.core.utils.RPApi;
 import com.itremind.wildapp.servlets.admin.interfaces.ManagementController;
 import com.itremind.wildapp.core.utils.Toast;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,6 @@ public class AdministrationController implements ManagementController {
         String p = System.getProperty("program.name");
         Toast t = new Toast("Install", "good", Toast.TYPE_SUCCESS);
         model.addAttribute("toast", t);
-
         return "/admin/admin";
 
     }
